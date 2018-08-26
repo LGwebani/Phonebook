@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Phonebook.EF\Phonebook.EF.csproj" />
+    <ProjectReference Include="..\Phonebook.Shared\Phonebook.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

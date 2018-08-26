@@ -1,0 +1,9 @@
+<form>
+    <partial name="_ValidationErrorPartial" />
+    <img src="~/images/ajax-loader.gif" alt="ajax-loader" class="ajax-loader center-ajax-image invisible" />
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" id="Name" autocomplete="off" maxlength="50" data-bind="value: $root.currentItem().name;" class="form-control" aria-describedby="nameHelp" placeholder="Enter name.">
+        <small id="nameHelp" class="form-text text-muted">A name is required to create a Phonebook.</small>
+    </div>
+</form>

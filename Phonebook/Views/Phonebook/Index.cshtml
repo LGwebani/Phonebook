@@ -1,0 +1,50 @@
+﻿@model Phonebook.App.Models.PhonebookListModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Phonebook list";
+}
+
+@section Scripts {
+    <script src="~/Scripts/App/PhonebookGrid.js"></script>
+    <script type="text/javascript">
+        ko.applyBindings(new PhonebookGridModel(@Html.Raw(Json.Serialize(Model.Phonebooks))));
+        $(document).ready(function(){
+            $('#phonebooks').DataTable();
+        });
+    </script>
+}
+
+    <div id="phonebooksList">
+        <h2>Phonebooks</h2>
+        <partial name="_SuccessPartial" />
+        <button type="button" class="btn btn-primary pull-right margin-bottom-small" data-bind="click: $root.showCreateItemWindow">Add</button>
+        <div class="clearfix"></div>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered dt-responsive nowrap" id="phonebooks">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th></th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind='foreach: items'>
+                    <tr>
+                        <td data-bind='text: name'></td>
+                        <td>
+                            <a data-bind="attr: { 'href': 'Entry/Index/' + id() }"> Contacts </a>
+                        </td>
+                        <td style="width: 10%;">
+                            <button type="button" class="btn btn-info" data-bind="click: $root.showEditItemWindow">Edit</button>
+                            <button type="button" class="btn btn-danger" data-bind="click: $root.showDeleteItemConfirmationWindow">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <partial name="_DeletePartial" />
+        <partial name="_Create.cshtml" />
+        <partial name="_Edit.cshtml" />
+    </div>
+
+

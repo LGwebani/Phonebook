@@ -1,0 +1,8 @@
+<div data-bind="visible: $root.hasErrorMessages;">
+    <div class="alert alert-danger fade in">
+        <a href="#" class="close" data-bind="click: $root.resetAlertMessages">&times;</a>
+        <div data-bind="foreach: $root.errorMessages;">
+            <label data-bind="text:  $data;"></label>
+        </div>
+    </div>
+</div>
